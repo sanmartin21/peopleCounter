@@ -29,7 +29,7 @@ def count_white_pixels(frame):
     return cv2.countNonZero(crop)
 
 def draw_rectangle(frame, liberado):
-    color = (0, 255, 0) if not liberado else (255, 0, 255)
+    color = (0, 255, 0) if not liberado else (0, 0, 255)
     cv2.rectangle(frame, (X, Y), (X + W, Y + H), color, 4)
     return frame
 
@@ -62,8 +62,8 @@ def main():
         cv2.rectangle(frame, (575,155), (575 + 88, 155 + 85), (255, 255, 255), -1)
         cv2.putText(frame, str(contador), (X+100, Y), cv2.FONT_HERSHEY_SIMPLEX, 3, (255, 0, 0), 5)
 
-        cv2.imshow('video original', frame)
-        cv2.imshow('Vídeo Processado', cv2.resize(frame_dilated, (600, 500)))
+        cv2.imshow('Video Original', frame)
+        cv2.imshow('Video Processado', cv2.resize(frame_dilated, (600, 500)))
 
         key = cv2.waitKey(20)
         if key == 27:  # Interromper o loop se a tecla 'Esc' for pressionada
